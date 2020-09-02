@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -82,7 +82,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -132,7 +132,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -184,7 +184,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -236,7 +236,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -286,7 +286,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -338,7 +338,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -390,7 +390,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -442,7 +442,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -494,7 +494,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -546,7 +546,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
@@ -598,7 +598,7 @@ module.exports.run = async (bot, message, args) => {
       };
 
       message
-        .awaitReactions(filter, { max: 1 })
+        .awaitReactions(filter, { max: 1, time: 3000000 })
         .then((collected) => {
           const reaction = collected.first();
           let role = message.guild.roles.cache.find(
