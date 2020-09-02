@@ -39,22 +39,26 @@ module.exports.run = async (bot, message, args) => {
         ctx.drawImage(toxic, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Earth Badge")
+        message.member.roles.cache.some((role) => role.name === "Horizon Badge")
       ) {
         ctx.drawImage(earth, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Hail Badge")
+        message.member.roles.cache.some(
+          (role) => role.name === "Twilight Badge"
+        )
       ) {
         ctx.drawImage(darkice, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Karen Badge")
+        message.member.roles.cache.some(
+          (role) => role.name === "Hysteria Badge"
+        )
       ) {
         ctx.drawImage(eclipse, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Capital Badge")
+        message.member.roles.cache.some((role) => role.name === "Swag Badge")
       ) {
         ctx.drawImage(sini, 0, 0, canvas.width, canvas.height);
       }
