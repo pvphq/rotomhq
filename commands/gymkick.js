@@ -181,35 +181,29 @@ module.exports.run = async (bot, message, args) => {
         (r) => r.name === "Stronghold Badge"
       );
     } else {
-      message.channel.send(
-        "`You're not a Gym Leader here, apologize right now!`"
-      );
+      message.channel.send("`This ain't your Gym son!`");
       return;
     }
   } else {
-    message.channel.send("Award Badges in your Gym Channel, Sir!");
+    message.channel.send("`You have no powers in this channel :) Noob`");
     return;
   }
-  const awardEmbed = new Discord.MessageEmbed()
+  const kickEmbed = new Discord.MessageEmbed()
     .setColor("#daffe7")
     // .attachFiles(["./assets/img/logo1.png"])
     .addFields({
-      value: `You have been awarded the **${badge}** by **${leader.username}**.`,
-      name: `🎉 Congratulations on defeating the Gym, **${trainerName.username}**`,
+      value: `Come back after atleast 7 Days from this message!`,
+      name: `**${trainerName.username}** has been defeated by **${leader.username}**`,
       inline: true,
     })
     .setTimestamp();
   // .setFooter("\u200B", "attachment://logo1.png");
 
-  message.client.channels.cache.get("750650681400229979").send(awardEmbed);
-  message.channel.send(
-    `${badge} has been awarded to ${trainerName.username} by ${leader.username}`
-  );
-  trainer.roles.add(badgeRole);
+  message.client.channels.cache.get("750209473955758211").send(kickEmbed);
   trainer.roles.remove(challengerRole);
 };
 
 module.exports.help = {
-  name: "awardbadge",
-  aliases: ["givebadge"],
+  name: "gymkick",
+  aliases: ["comeagain"],
 };
