@@ -361,7 +361,7 @@ module.exports.run = async (bot, message, args) => {
             console.log("you reacted with a thumbs down.");
           }
         })
-        .catch((collected) => {
+        .catch((error) => {
           console.log(error);
         });
     } else if (
@@ -413,7 +413,7 @@ module.exports.run = async (bot, message, args) => {
             console.log("you reacted with a thumbs down.");
           }
         })
-        .catch((collected) => {
+        .catch((error) => {
           console.log(error);
         });
     } else if (
