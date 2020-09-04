@@ -193,13 +193,20 @@ module.exports.run = async (bot, message, args) => {
     // .attachFiles(["./assets/img/logo1.png"])
     .addFields({
       value: `Come back after atleast 7 Days from this message!`,
-      name: `**${trainerName.username}** has been defeated by **${leader.username}**`,
+      name: `**${trainerName.username}** has been defeated by **${leader.username}** in ${message.channel.name}`,
       inline: true,
     })
     .setTimestamp();
   // .setFooter("\u200B", "attachment://logo1.png");
 
   message.client.channels.cache.get("750209473955758211").send(kickEmbed);
+  message.channel.send(
+    `**${trainerName.username}** has been removed from the Gym!`
+  );
+  trainer.send(
+    `You have been removed from ${message.channel.name}, Please rechallenge only after 7 days of this meaase! GL!`
+  );
+
   trainer.roles.remove(challengerRole);
 };
 

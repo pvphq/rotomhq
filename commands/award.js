@@ -195,7 +195,7 @@ module.exports.run = async (bot, message, args) => {
     // .attachFiles(["./assets/img/logo1.png"])
     .addFields({
       value: `You have been awarded the **${badge}** by **${leader.username}**.`,
-      name: `🎉 Congratulations on defeating the Gym, **${trainerName.username}**`,
+      name: `🎉 Congratulations on defeating the ${message.channel.name}, **${trainerName.username}**`,
       inline: true,
     })
     .setTimestamp();
