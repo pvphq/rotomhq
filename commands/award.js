@@ -178,7 +178,7 @@ module.exports.run = async (bot, message, args) => {
         (r) => r.name === "Stronghold Challenger"
       );
       badgeRole = message.guild.roles.cache.find(
-        (r) => r.name === "Stronghold Badge"
+        (r) => r.name === "Ferrous Badge"
       );
     } else {
       message.channel.send(
