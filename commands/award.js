@@ -5,6 +5,7 @@ module.exports.run = async (bot, message, args) => {
   const leader = message.author;
   const trainer = message.mentions.members.first();
   const trainerName = message.mentions.users.first();
+  const holdRole = message.guild.roles.cache.find((r) => r.name === "Onhold");
 
   if (message.channel.id == "745888605246980156") {
     if (message.member.roles.cache.has("745888163938959462")) {
@@ -207,6 +208,7 @@ module.exports.run = async (bot, message, args) => {
   );
   trainer.roles.add(badgeRole);
   trainer.roles.remove(challengerRole);
+  trainer.roles.remove(holdRole);
 };
 
 module.exports.help = {

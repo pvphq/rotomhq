@@ -3,6 +3,7 @@ const client = new Discord.Client();
 
 module.exports.run = async (bot, message, args) => {
   let user = message.author;
+  const holdRole = message.guild.roles.cache.find((r) => r.name === "Onhold");
   if (message.channel.id === "747664537699876927") {
     if (
       message.mentions.roles.some((r) =>
@@ -49,6 +50,7 @@ module.exports.run = async (bot, message, args) => {
                   " is here! Please time your matches with <@&745888163938959462> and have fun :)) GL! 🔥"
               );
             member.roles.add(role).catch(console.error);
+            member.roles.add(holdRole);
           } else {
             console.log("you reacted with a thumbs down.");
           }
@@ -101,6 +103,7 @@ module.exports.run = async (bot, message, args) => {
                   " is here! Please time your matches with <@&745892218404995155> and have fun :)) GL! 🔥"
               );
             member.roles.add(role).catch(console.error);
+            member.roles.add(holdRole);
           } else {
             console.log("you reacted with a thumbs down.");
           }
@@ -151,6 +154,7 @@ module.exports.run = async (bot, message, args) => {
                   " is here! Please time your matches with <@&745896315694612553> and have fun :)) GL! 🔥"
               );
             member.roles.add(role).catch(console.error);
+            member.roles.add(holdRole);
           } else {
             console.log("you reacted with a thumbs down.");
           }
@@ -203,6 +207,7 @@ module.exports.run = async (bot, message, args) => {
                   " is here! Please time your matches with <@&746599067034976358> and have fun :)) GL! 🔥"
               );
             member.roles.add(role).catch(console.error);
+            member.roles.add(holdRole);
           } else {
             console.log("you reacted with a thumbs down.");
           }
@@ -254,6 +259,7 @@ module.exports.run = async (bot, message, args) => {
                 `${user}` +
                   " is here! Please time your matches with <@&747032760748736562> and have fun :)) GL! 🔥"
               );
+            member.roles.add(holdRole);
             member.roles.add(role).catch(console.error);
           } else {
             console.log("you reacted with a thumbs down.");
@@ -304,6 +310,7 @@ module.exports.run = async (bot, message, args) => {
                 `${user}` +
                   " is here! Please time your matches with <@&745894420125319168> and have fun :)) GL! 🔥"
               );
+            member.roles.add(holdRole);
             member.roles.add(role).catch(console.error);
           } else {
             console.log("you reacted with a thumbs down.");
@@ -356,6 +363,7 @@ module.exports.run = async (bot, message, args) => {
                 `${user}` +
                   " is here! Please time your matches with <@&745931607592009788> and have fun :)) GL! 🔥"
               );
+            member.roles.add(holdRole);
             member.roles.add(role).catch(console.error);
           } else {
             console.log("you reacted with a thumbs down.");
@@ -408,6 +416,7 @@ module.exports.run = async (bot, message, args) => {
                 `${user}` +
                   " is here! Please time your matches with <@&745902834402459798> and have fun :)) GL! 🔥"
               );
+            member.roles.add(holdRole);
             member.roles.add(role).catch(console.error);
           } else {
             console.log("you reacted with a thumbs down.");
@@ -460,6 +469,7 @@ module.exports.run = async (bot, message, args) => {
                 `${user}` +
                   " is here! Please time your matches with <@&746194512094822460> and have fun :)) GL! 🔥"
               );
+            member.roles.add(holdRole);
             member.roles.add(role).catch(console.error);
           } else {
             console.log("you reacted with a thumbs down.");
@@ -512,6 +522,7 @@ module.exports.run = async (bot, message, args) => {
                 `${user}` +
                   " is here! Please time your matches with <@&746597884446769173> and have fun :)) GL! 🔥"
               );
+            member.roles.add(holdRole);
             member.roles.add(role).catch(console.error);
           } else {
             console.log("you reacted with a thumbs down.");
@@ -564,6 +575,7 @@ module.exports.run = async (bot, message, args) => {
                 `${user}` +
                   " is here! Please time your matches with <@&746599166641176576> and have fun :)) GL! 🔥"
               );
+            member.roles.add(holdRole);
             member.roles.add(role).catch(console.error);
           } else {
             console.log("you reacted with a thumbs down.");
@@ -616,6 +628,7 @@ module.exports.run = async (bot, message, args) => {
                 `${user}` +
                   " is here! Please time your matches with <@&745933217411891220> and have fun :)) GL! 🔥"
               );
+            member.roles.add(holdRole);
             member.roles.add(role).catch(console.error);
           } else {
             console.log("you reacted with a thumbs down.");
