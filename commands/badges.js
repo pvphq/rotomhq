@@ -63,9 +63,7 @@ module.exports.run = async (bot, message, args) => {
         ctx.drawImage(sini, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some(
-          (role) => role.name === "Stronghold Badge"
-        )
+        message.member.roles.cache.some((role) => role.name === "Ferrous Badge")
       ) {
         ctx.drawImage(normal, 0, 0, canvas.width, canvas.height);
       }
@@ -90,7 +88,7 @@ module.exports.run = async (bot, message, args) => {
         ctx.drawImage(rust, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Fort Badge")
+        message.member.roles.cache.some((role) => role.name === "Wave Badge")
       ) {
         ctx.drawImage(fort, 0, 0, canvas.width, canvas.height);
       }
