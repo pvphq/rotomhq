@@ -34,11 +34,11 @@ module.exports.run = async (bot, message, args) => {
         });
         newData.save().catch((err) => console.log(err));
         return message.channel.send(
-          `${bot.users.cache.get(user.id)} has 0 credits.`
+          `${bot.users.cache.get(user.id)} has no wins in the Gyms yet!`
         );
       } else {
         return message.channel.send(
-          `${bot.users.cache.get(user.id)} has ${data.creds} credits.`
+          `${bot.users.cache.get(user.id)} has ${data.wins} wins.`
         );
       }
     }
@@ -46,6 +46,6 @@ module.exports.run = async (bot, message, args) => {
 };
 
 module.exports.help = {
-  name: "creds",
-  aliases: ["bal", "balance"],
+  name: "score",
+  aliases: ["wins"],
 };

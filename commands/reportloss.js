@@ -1,11 +1,20 @@
 // at the top of your file
 const Discord = require("discord.js");
+const mongoose = require("mongoose");
+// const botconfig = require("../botconfig.json");
+
+//Connect to db
+mongoose.connect(process.env.mongoPass || botconfig.mongoPass, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+//MODELS
+const Data = require("../models/data.js");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
-  const trainer = message.mentions.members.first();
   const trainerName = message.mentions.users.first();
-  const holdRole = message.guild.roles.cache.find((r) => r.name === "Onhold");
 
   if (message.channel.id == "745888605246980156") {
     if (message.member.roles.cache.has("745888163938959462")) {
@@ -179,39 +188,55 @@ module.exports.run = async (bot, message, args) => {
         (r) => r.name === "Stronghold Challenger"
       );
       badgeRole = message.guild.roles.cache.find(
-        (r) => r.name === "Ferrous Badge"
+        (r) => r.name === "Stronghold Badge"
       );
     } else {
-      message.channel.send(
-        "`You're not a Gym Leader here, apologize right now!`"
-      );
+      message.channel.send("`This ain't your Gym son!`");
       return;
     }
   } else {
-    message.channel.send("Award Badges in your Gym Channel, Sir!");
+    message.channel.send("`You have no powers in this channel :) Noob`");
     return;
   }
-  const awardEmbed = new Discord.MessageEmbed()
-    .setColor("#daffe7")
-    // .attachFiles(["./assets/img/logo1.png"])
-    .addFields({
-      value: `You have been awarded the **${badge}** by **${leader.username}**.`,
-      name: `🎉 Congratulations on defeating the ${message.channel.name}, **${trainerName.username}**`,
-      inline: true,
-    })
-    .setTimestamp();
-  // .setFooter("\u200B", "attachment://logo1.png");
 
-  message.client.channels.cache.get("750650681400229979").send(awardEmbed);
-  message.channel.send(
-    `${badge} has been awarded to ${trainerName} by ${leader}`
-  );
-  trainer.roles.add(badgeRole);
-  trainer.roles.remove(challengerRole);
-  trainer.roles.remove(holdRole);
+  message.client.channels.cache
+    .get("750059353691914361")
+    .send(
+      `**${trainerName}** failed to defeat **${leader}** in ${message.channel}`
+    );
+
+  {
+    let user = message.mentions.users.first() || bot.users.cache.get(args[0]);
+    if (!user) return message.reply("Sorry, that user is not registered yet!");
+
+    Data.findOne(
+      {
+        userID: user.id,
+      },
+
+      (err, userData) => {
+        if (err) console.log(err);
+
+        if (!userData) {
+          const newData = new Data({
+            name: bot.users.cache.get(user.id).username,
+            userID: user.id,
+            lb: "all",
+            creds: 0,
+            wins: 0,
+            losses: 1,
+          });
+          newData.save().catch((err) => console.log(err));
+        } else {
+          userData.losses += 1;
+          userData.save().catch((err) => console.log(err));
+        }
+      }
+    );
+  }
 };
 
 module.exports.help = {
-  name: "awardbadge",
-  aliases: ["givebadge"],
+  name: "reportloss",
+  aliases: ["rl"],
 };
