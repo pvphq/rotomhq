@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         (r) => r.name === "Black Mirror Challenger"
       );
       trainer.send(
-        "Welcome to **Black Mirror Gym** \n This is a **Poison/Psychic Gym** with **Steel Type Pokemon** banned! \n Also **A-Wak, Altaria and Umbreon** are Blacklisted as well! \n **No Mythicals, Legendaries or Shadows** are allowed in this Gym! \n Send Request to the Leaders : \n > Kayne98: 0327 8425 5689 \n > Rahul3507: 7531 8026 3356 \n > Shashwizard: 8202 2877 3527 \n > Whitewalker91: 8490 1956 8295 \n DM the Leaders and schedule a time to battle! GL!"
+        "Welcome to **Black Mirror Gym** \n This is a **Poison/Psychic Gym** with **Steel Type Pokemon** banned! \n Also **A-Wak, Altaria and Umbreon** are Blacklisted as well! \n Send Request to the Leaders : \n > Kayne98: 0327 8425 5689 \n > Rahul3507: 7531 8026 3356 \n > Shashwizard: 8202 2877 3527 \n > Whitewalker91: 8490 1956 8295 \n DM the Leaders and schedule a time to battle! GL!"
       );
     } else if (message.member.roles.cache.has("745894420125319168")) {
       challengerRole = message.guild.roles.cache.find(
