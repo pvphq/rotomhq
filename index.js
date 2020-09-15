@@ -65,6 +65,9 @@ bot.on("message", async (message) => {
     command = bot.commands.get(cmd);
   } else if (bot.aliases.has(cmd)) {
     command = bot.commands.get(bot.aliases.get(cmd));
+  } else if (cmd != bot.commands) {
+    message.channel.send("Wrong command bruh! Check commands plis!");
+    return;
   }
   try {
     command.run(bot, message, args);
