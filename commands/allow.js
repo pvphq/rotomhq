@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
   const holdRole = message.guild.roles.cache.find((r) => r.name === "Onhold");
   const trainer = message.mentions.members.first();
   const trainerName = message.mentions.users.first();
+  let member = message.member;
 
   if (message.channel.id === "710921102033158306") {
     if (message.member.roles.cache.has("747032760748736562")) {
