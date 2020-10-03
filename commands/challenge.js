@@ -94,7 +94,7 @@ module.exports.run = async (bot, message, args) => {
 
           if (reaction.emoji.name === "✅") {
             message.author.send(
-              "Welcome to **Black Mirror Gym** \n This is a **Poison/Psychic Gym** with **Steel Type Pokemon** banned! \n Also **A-Wak, Altaria and Umbreon** are Blacklisted as well! \n Send Request to the Leaders : \n > Kayne98: 0327 8425 5689 \n > ChampRameshPal: 1371 4791 2705 \n > Shashwizard: 8202 2877 3527 \n > Whitewalker91: 8490 1956 8295 \n DM the Leaders and schedule a time to battle! GL!"
+              "Welcome to **Black Mirror Gym** \n This is a **Poison/Psychic Gym** with **Steel Type Pokemon** banned! \n Also **A-Wak, Altaria and Umbreon** are Blacklisted as well! \n Send Request to the Leaders : \n > Kayne98: 0327 8425 5689 \n > ChampRameshPal: 1371 4791 2705 \n > Shashankreal: 4140 2804 1127 \n > Whitewalker91: 8490 1956 8295 \n DM the Leaders and schedule a time to battle! GL!"
             );
             message.client.channels.cache
               .get("745892671582896158")
