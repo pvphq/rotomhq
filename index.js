@@ -50,7 +50,7 @@ bot.on("message", async (message) => {
   if (message.author.bot) return;
 
   //Prefix
-  let prefix = process.env.prefix || botconfig.prefix;
+  let prefix = process.env.prefix || botconfig.prefix || process.env.prefix2;
 
   //Check PREFIX and Define ARGS AND COMMANDS
   if (!message.content.startsWith(prefix)) return;
