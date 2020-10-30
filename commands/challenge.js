@@ -285,7 +285,7 @@ module.exports.run = async (bot, message, args) => {
         return (
           ["✅"].includes(reaction.emoji.name) &&
           (blackmirrorleader.id === "349390345966059531" ||
-            blackmirrorleader.id === "636091262994350111" ||
+            blackmirrorleader.id === "642980180993769473" ||
             blackmirrorleader.id === "602757369071534093" ||
             blackmirrorleader.id === "607987753426223109" ||
             blackmirrorleader.id === "367748690938691584")
@@ -391,7 +391,7 @@ module.exports.run = async (bot, message, args) => {
       const filter = (reaction, blackmirrorleader) => {
         return (
           ["✅"].includes(reaction.emoji.name) &&
-          (blackmirrorleader.id === "409741595550941184" ||
+          (blackmirrorleader.id === "643331768228773899" ||
             blackmirrorleader.id === "615101506382725158" ||
             blackmirrorleader.id === "645703049670688812" ||
             blackmirrorleader.id === "538713587599015939")
