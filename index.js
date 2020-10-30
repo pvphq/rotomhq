@@ -34,7 +34,7 @@ bot.on("ready", async () => {
   bot.user.setActivity("with myself.");
 });
 
-bot.on("guildMemberAdd", (member) => {
+bot.on("guildMemberAdd", member => {
   member.guild.channels.cache
     .get("713713610706255932")
     .send(

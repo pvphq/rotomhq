@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
         (r) => r.name === "Fort Challenger"
       );
       trainer.send(
-        "Welcome to **Fort Gym** \n This is a **Water/Ground Gym** with **Grass Type Pokemon** banned! \n Also **A-Raichu, Gallade, Linoone** are Blacklisted as well! \n **No Mythicals, Legendaries or Shadows** are allowed in this Gym! \n Send Request to the Leaders : \n > BattleBoiy: 8984 0650 8465 \n > UchihaAjinkya: 9204 5652 0285 \n > Siddhant9923: 6996 1481 4235 \n > S7Sandy: 5710 8789 9076 \n DM the Leaders and schedule a time to battle! GL!"
+        "Welcome to **Fort Gym** \n This is a **Water/Ground Gym** with **Grass Type Pokemon** banned! \n Also **A-Raichu, Gallade, Linoone** are Blacklisted as well! \n **No Mythicals, Legendaries or Shadows** are allowed in this Gym! \n Send Request to the Leaders : \n > BattleBoiy: 8984 0650 8465 \n > UchihaAjinkya: 9204 5652 0285 \n > pokymasteramit: 0892 1082 6816 \n > S7Sandy: 5710 8789 9076 \n DM the Leaders and schedule a time to battle! GL!"
       );
     } else if (message.member.roles.cache.has("745931607592009788")) {
       challengerRole = message.guild.roles.cache.find(
@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
         (r) => r.name === "Virbank City Challenger"
       );
       trainer.send(
-        "Welcome to **Virbank City Gym** \n This is a **Poison/Water Gym** with **Electric Type Pokemon** banned! \n Also **Rainy-Cast, Ferrothorn, Meganium** are Blacklisted as well! \n **No Mythicals, Legendaries or Shadows** are allowed in this Gym! \n Send Request to the Leaders : \n > Count.Xevious: 3980 2366 9763 \n > BraviorWyvern: 0468 7062 2966 \n > pratt07: 1716 6620 0731 \n > shivkeshav: 5051 6781 0093 \n DM the Leaders and schedule a time to battle! GL!"
+        "Welcome to **Virbank City Gym** \n This is a **Poison/Water Gym** with **Electric Type Pokemon** banned! \n Also **Rainy-Cast, Ferrothorn, Meganium** are Blacklisted as well! \n **No Mythicals, Legendaries or Shadows** are allowed in this Gym! \n Send Request to the Leaders : \n > Dhruva0211: 4134 0111 2427 \n > BraviorWyvern: 0468 7062 2966 \n > pratt07: 1716 6620 0731 \n > shivkeshav: 5051 6781 0093 \n DM the Leaders and schedule a time to battle! GL!"
       );
     } else if (message.member.roles.cache.has("745933217411891220")) {
       challengerRole = message.guild.roles.cache.find(
