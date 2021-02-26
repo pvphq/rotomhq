@@ -1,13 +1,11 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({ disableEveryone: true });
-// const botconfig = require("./botconfig.json");
 const fs = require("fs");
-const Canvas = require("canvas");
+require("dotenv").config();
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
-//Read commands folder
 fs.readdir("./commands/", (err, files) => {
   if (err) console.log(err);
 
@@ -34,7 +32,7 @@ bot.on("ready", async () => {
   bot.user.setActivity("with myself.");
 });
 
-bot.on("guildMemberAdd", member => {
+bot.on("guildMemberAdd", (member) => {
   member.guild.channels.cache
     .get("713713610706255932")
     .send(
@@ -50,7 +48,7 @@ bot.on("message", async (message) => {
   if (message.author.bot) return;
 
   //Prefix
-  let prefix = process.env.prefix || botconfig.prefix || process.env.prefix2;
+  let prefix = process.env.prefix;
 
   //Check PREFIX and Define ARGS AND COMMANDS
   if (!message.content.startsWith(prefix)) return;
@@ -76,4 +74,4 @@ bot.on("message", async (message) => {
   }
 });
 
-bot.login(process.env.token || botconfig.token);
+bot.login(process.env.token);
