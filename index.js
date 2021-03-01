@@ -29,7 +29,14 @@ fs.readdir("./commands/", (err, files) => {
 //Activity and Ready
 bot.on("ready", async () => {
   console.log("Bot Ready!");
-  bot.user.setActivity("with myself.");
+  setInterval(() => {
+    targetGuild = bot.guilds.cache.get("706571213941637191");
+    if (targetGuild) {
+      bot.user.setActivity(
+        "with " + targetGuild.memberCount + " trainer's brains!"
+      );
+    }
+  }, 1800000);
 });
 
 bot.on("guildMemberAdd", (member) => {
