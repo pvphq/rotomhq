@@ -50,6 +50,8 @@ module.exports.run = async (bot, message, args) => {
                 creds: 0,
                 wins: parseInt(args[1]),
                 losses: 0,
+                leaderlosses: 0,
+                leaderwins: 0,
               });
               newData.save().catch((err) => console.log(err));
             } else {

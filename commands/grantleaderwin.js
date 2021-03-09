@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     (err, authorData) => {
       if (err) console.log(err);
       if (!authorData) {
-        return message.reply("Cannot grant you losses! Come back later!");
+        return message.reply("Cannot grant you wins! Come back later!");
       } else {
         Data.findOne(
           {
@@ -34,12 +34,12 @@ module.exports.run = async (bot, message, args) => {
 
             if (!args[1])
               return message.reply(
-                "Just how many losses would you want to grant this trainer?"
+                "Just how many wins would you want to grant this trainer?"
               );
 
             if (args[1] != Math.floor(args[1]))
               return message.reply(
-                "Oof! Enter only whole numbers there boiy! You can't lose half a match!"
+                "Oof! Enter only whole numbers there boiy! You can't win half a match!"
               );
 
             if (!userData) {
@@ -49,18 +49,18 @@ module.exports.run = async (bot, message, args) => {
                 lb: "all",
                 creds: 0,
                 wins: 0,
-                losses: parseInt(args[1]),
+                leaderwins: parseInt(args[1]),
                 leaderlosses: 0,
-                leaderwins: 0,
+                losses: 0,
               });
               newData.save().catch((err) => console.log(err));
             } else {
-              userData.losses += parseInt(args[1]);
+              userData.leaderwins += parseInt(args[1]);
               userData.save().catch((err) => console.log(err));
             }
 
             return message.channel.send(
-              `${message.author}, you just granted ${user} with ${args[1]} losses!`
+              `${message.author}, you just granted ${user} with ${args[1]} wins!`
             );
           }
         );
@@ -70,6 +70,6 @@ module.exports.run = async (bot, message, args) => {
 };
 
 module.exports.help = {
-  name: "grantloss",
-  aliases: ["gl"],
+  name: "grantleaderwins",
+  aliases: ["glw"],
 };

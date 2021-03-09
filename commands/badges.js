@@ -3,7 +3,7 @@ const Canvas = require("canvas");
 
 module.exports.run = async (bot, message, args) => {
   try {
-    const canvas = Canvas.createCanvas(900, 350);
+    const canvas = Canvas.createCanvas(1920, 1080);
     const ctx = canvas.getContext("2d");
 
     const background = await Canvas.loadImage("./assets/img/Recta.png");
@@ -14,83 +14,65 @@ module.exports.run = async (bot, message, args) => {
     // Draw a rectangle with the dimensions of the entire canvas
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-    const lavaridge = await Canvas.loadImage("./assets/img/pyro.png");
-    const fort = await Canvas.loadImage("./assets/img/Fort.png");
-    const rust = await Canvas.loadImage("./assets/img/gallium.png");
-    const tornado = await Canvas.loadImage("./assets/img/tornado.png");
-    const fairy = await Canvas.loadImage("./assets/img/fairy.png");
-    const tundra = await Canvas.loadImage("./assets/img/icegrass.png");
-    const normal = await Canvas.loadImage("./assets/img/normal.png");
-    const sini = await Canvas.loadImage("./assets/img/sini.png");
-    const eclipse = await Canvas.loadImage("./assets/img/eclipse.png");
-    const darkice = await Canvas.loadImage("./assets/img/darkice.png");
-    const toxic = await Canvas.loadImage("./assets/img/toxic.png");
-    const earth = await Canvas.loadImage("./assets/img/viridian.png");
+    const badge1 = await Canvas.loadImage("./assets/img/Grunt.png");
+    const badge2 = await Canvas.loadImage("./assets/img/NoLag.png");
+    const badge3 = await Canvas.loadImage("./assets/img/Zephyr.png");
+    const badge4 = await Canvas.loadImage("./assets/img/Mumbai.png");
+    const badge5 = await Canvas.loadImage("./assets/img/Cursed.png");
+    const badge6 = await Canvas.loadImage("./assets/img/Charcoal.png");
+    const badge7 = await Canvas.loadImage("./assets/img/Chennai.png");
+    const badge8 = await Canvas.loadImage("./assets/img/AllStars.png");
 
     try {
       if (
-        message.member.roles.cache.some((role) => role.name === "Lava Badge")
+        message.member.roles.cache.some((role) => role.name === "Grunt Badge")
       ) {
-        ctx.drawImage(lavaridge, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(badge1, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Toxic Badge")
+        message.member.roles.cache.some((role) => role.name === "No Lag Badge")
       ) {
-        ctx.drawImage(toxic, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(badge2, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Horizon Badge")
+        message.member.roles.cache.some((role) => role.name === "Zephyr Badge")
       ) {
-        ctx.drawImage(earth, 0, 0, canvas.width, canvas.height);
-      }
-      if (
-        message.member.roles.cache.some(
-          (role) => role.name === "Twilight Badge"
-        )
-      ) {
-        ctx.drawImage(darkice, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(badge3, 0, 0, canvas.width, canvas.height);
       }
       if (
         message.member.roles.cache.some(
-          (role) => role.name === "Hysteria Badge"
+          (role) => role.name === "Mind Palace Badge"
         )
       ) {
-        ctx.drawImage(eclipse, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(badge4, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Swag Badge")
+        message.member.roles.cache.some(
+          (role) => role.name === "Cursed Platinum Badge"
+        )
       ) {
-        ctx.drawImage(sini, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(badge5, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Ferrous Badge")
+        message.member.roles.cache.some(
+          (role) => role.name === "Charcoal Badge"
+        )
       ) {
-        ctx.drawImage(normal, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(badge6, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Boreal Badge")
+        message.member.roles.cache.some(
+          (role) => role.name === "Love Dust Badge"
+        )
       ) {
-        ctx.drawImage(tundra, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(badge7, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Sacred Badge")
+        message.member.roles.cache.some(
+          (role) => role.name === "Turbulent Badge"
+        )
       ) {
-        ctx.drawImage(fairy, 0, 0, canvas.width, canvas.height);
-      }
-      if (
-        message.member.roles.cache.some((role) => role.name === "Tornado Badge")
-      ) {
-        ctx.drawImage(tornado, 0, 0, canvas.width, canvas.height);
-      }
-      if (
-        message.member.roles.cache.some((role) => role.name === "Rust Badge")
-      ) {
-        ctx.drawImage(rust, 0, 0, canvas.width, canvas.height);
-      }
-      if (
-        message.member.roles.cache.some((role) => role.name === "Wave Badge")
-      ) {
-        ctx.drawImage(fort, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(badge8, 0, 0, canvas.width, canvas.height);
       }
     } catch (error) {
       console.log(" ");

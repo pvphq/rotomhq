@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     (err, authorData) => {
       if (err) console.log(err);
       if (!authorData) {
-        return message.reply("You got no money to pay!");
+        return message.reply("Cannot grant you losses! Come back later!");
       } else {
         Data.findOne(
           {
@@ -33,28 +33,34 @@ module.exports.run = async (bot, message, args) => {
             if (err) console.log(err);
 
             if (!args[1])
-              return message.reply("You need to specify how much dude!");
+              return message.reply(
+                "Just how many losses would you want to grant this trainer?"
+              );
 
             if (args[1] != Math.floor(args[1]))
-              return message.reply("Oof! Enter only whole numbers there boiy!");
+              return message.reply(
+                "Oof! Enter only whole numbers there boiy! You can't lose half a match!"
+              );
 
             if (!userData) {
               const newData = new Data({
                 name: bot.users.cache.get(user.id).username,
                 userID: user.id,
                 lb: "all",
-                creds: parseInt(args[1]),
+                creds: 0,
                 wins: 0,
                 losses: 0,
+                leaderwins: 0,
+                leaderlosses: parseInt(args[1]),
               });
               newData.save().catch((err) => console.log(err));
             } else {
-              userData.creds += parseInt(args[1]);
+              userData.leaderlosses += parseInt(args[1]);
               userData.save().catch((err) => console.log(err));
             }
 
             return message.channel.send(
-              `${message.author.username}, you just added ${args[1]} credits to ${user}, now they have ${userData.creds} credits.`
+              `${message.author}, you just granted ${user} with ${args[1]} losses!`
             );
           }
         );
@@ -64,6 +70,6 @@ module.exports.run = async (bot, message, args) => {
 };
 
 module.exports.help = {
-  name: "credspay",
-  aliases: ["cp"],
+  name: "grantloss",
+  aliases: ["gl"],
 };

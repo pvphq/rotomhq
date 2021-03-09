@@ -7,6 +7,8 @@ const dataSchema = mongoose.Schema({
   creds: Number,
   wins: Number,
   losses: Number,
+  leaderlosses: Number,
+  leaderwins: Number,
 });
 
 module.exports = mongoose.model("Data", dataSchema);

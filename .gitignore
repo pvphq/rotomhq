@@ -1,5 +1,10 @@
-botconfig.json
+
 node_modules
 .env
 
 /commands/profile.js
+/commands/shop.js
+/commands/credslb.js
+/commands/credspay.js
+/commands/wins.js
+/commands/balance.js

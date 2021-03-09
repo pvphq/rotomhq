@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
       var page = Math.ceil(res.length / 10);
 
       let embed = new Discord.MessageEmbed();
-      embed.setTitle("LEADERBOARD : TOWER OF MASTERY");
+      embed.setTitle("LEADERBOARD : TOWER OF MASTERY S3");
       embed.attachFiles(["./assets/img/logo1.png"]);
       embed.setThumbnail("attachment://logo1.png");
       embed.setTimestamp();
