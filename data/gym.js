@@ -77,7 +77,7 @@ module.exports = [
   {
     gymRoleName: "Divination Gym",
     gymRoleID: "815952044942688266",
-    gymRoleID: "<@&815952044942688266>",
+    gymRoleIDTag: "<@&815952044942688266>",
     gymChannelID: "816773480766767144",
     leader1ID: "689410243284959276",
     leader2ID: "579384148360298507",
