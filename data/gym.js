@@ -195,8 +195,8 @@ module.exports = [
     gymName: "Shifting Tides Gym",
     gymTypings: "Kanto",
     typeBan: "No",
-    speciesBan: "Non Kanto Forms",
-    otherBans: "Shadows, Legendary, Mythical and Megas",
+    speciesBan: "Lickitung, Hypno, Dragonair, Dragonite, Wigglytuff",
+    otherBans: "Legendary, Megas, Alola and Galar Forms",
     badgeName: "Turbulent Badge",
   },
 ];
