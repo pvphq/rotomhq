@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp();
 
   message.client.channels.cache
-    .get("716746431729238077")
+    .get("819952657442537523")
     .send(`<@${user.id}>`, embed);
 };
 
