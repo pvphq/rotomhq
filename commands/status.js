@@ -1,6 +1,7 @@
+const GymData = require("../data/gym");
+
 module.exports.run = async (bot, message, args) => {
   let gym = message.mentions.roles.first();
-  const GymData = require("../data/gym");
 
   if (gym) {
     GymData.find((o, i) => {
