@@ -23,6 +23,7 @@ module.exports = [
     speciesBan: "Altaria, Bastiodon, and Skarmory",
     otherBans: "Shadow, Megas, Mythicals and Legendaries",
     badgeName: "Grunt Badge",
+    badgeEmote: "<:GruntBadge:817353404220702730>",
   },
   {
     gymRoleName: "No Disputes Gym",
@@ -48,6 +49,7 @@ module.exports = [
     speciesBan: "Medicham, Bastiodon, and Alolan Marowak",
     otherBans: "Shadow, Mythicals and Legendaries",
     badgeName: "No Lag Badge",
+    badgeEmote: "<:NoLagBadge:817406354310168606>",
   },
   {
     gymRoleName: "Hoverstock Gym",
@@ -73,6 +75,7 @@ module.exports = [
     speciesBan: "Abomasnow, Dewgong, and Alolan Ninetales",
     otherBans: "Shadow, Mythicals and Legendaries",
     badgeName: "Zephyr Badge",
+    badgeEmote: "<:ZephyrBadge:817742465825898526>",
   },
   {
     gymRoleName: "Divination Gym",
@@ -98,6 +101,7 @@ module.exports = [
     speciesBan: "Linoone, Mew, and Galvantula",
     otherBans: "Mega",
     badgeName: "Mind Palace Badge",
+    badgeEmote: "<:MindPalaceBadge:817783659271815169>",
   },
   {
     gymRoleName: "Platinum Ghoul Gym",
@@ -123,6 +127,7 @@ module.exports = [
     speciesBan: "Scrafty, Umbreon, and Sirfetch'd",
     otherBans: "Shadow, Mythical, Mega",
     badgeName: "Cursed Platinum Badge",
+    badgeEmote: "<:CursedBadge:818076779860197467>",
   },
   {
     gymRoleName: "Burning Forest Gym",
@@ -148,6 +153,7 @@ module.exports = [
     speciesBan: "Alolan Marowak, Kingdra, and Medicham",
     otherBans: "Legendary, Mythical, Mega",
     badgeName: "Charcoal Badge",
+    badgeEmote: "<:CharcoalBadge:818113217716944897>",
   },
   {
     gymRoleName: "Laverre Gym",
@@ -173,6 +179,7 @@ module.exports = [
     speciesBan: "Politoed, Rainy Castform and Pelipper",
     otherBans: "Shadows, Legendary, Mythical and Megas",
     badgeName: "Love Dust Badge",
+    badgeEmote: "<:LoveDustBadge:818395658708582410>",
   },
   {
     gymRoleName: "Shifting Tides Gym",
@@ -198,5 +205,6 @@ module.exports = [
     speciesBan: "Lickitung, Hypno, Dragonair, Dragonite, Wigglytuff",
     otherBans: "Legendary, Megas, Alola and Galar Forms",
     badgeName: "Turbulent Badge",
+    badgeEmote: "<:TurbulentBadge:818772945388306471>",
   },
 ];
