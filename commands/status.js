@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   );
 
   const embed = new Discord.MessageEmbed()
-    .setTitle("*Tower of Mastery: Gyms Status*")
+    .setTitle("Tower of Mastery: Gyms Status")
     .setColor("#ff8b00")
     .setTimestamp()
     .attachFiles(attachment)
@@ -19,30 +19,10 @@ module.exports.run = async (bot, message, args) => {
     const Members = Role.members.size;
     embed.addField(
       `${i.gymRoleName} ${i.badgeEmote}`,
-      `${Members} challengers`
+      `$**{Members}** challengers`
     );
   });
   message.channel.send(embed);
-
-  /* 
-  let gym = message.mentions.roles.first();
-
-  if (gym) {
-    GymData.find((o, i) => {
-      if (o.gymRoleName === gym.name) {
-        const Role = message.guild.roles.cache.get(
-          GymData[i].gymChallengerRoleID
-        );
-        const Members = Role.members.size;
-        message.channel.send(
-          `${Members} challengers are in line to battle ${GymData[i].gymRoleName}`
-        );
-      }
-    });
-  } else {
-    message.channel.send("Mention a Gym to know status");
-  }
-  */
 };
 
 module.exports.help = {
