@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     const Members = Role.members.size;
     embed.addField(
       `${i.gymRoleName} ${i.badgeEmote}`,
-      `$**{Members}** challengers`
+      `${Members} challengers`
     );
   });
   message.channel.send(embed);
