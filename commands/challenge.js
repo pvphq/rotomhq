@@ -27,7 +27,8 @@ module.exports.run = async (bot, message, args) => {
               (leader.id === GymData[i].leader1ID ||
                 leader.id === GymData[i].leader2ID ||
                 leader.id === GymData[i].leader3ID ||
-                leader.id === GymData[i].leader4ID)
+                leader.id === GymData[i].leader4ID ||
+                leader.id === "271234466993799180")
             );
           };
 
