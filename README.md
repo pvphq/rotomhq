@@ -23,7 +23,7 @@
 
 * Seperate leaderboards for Challenger and Leaders via MongoDB.
 * Invite command to invite your friends to the server.
-* Emoji support in preview :tada:
+* Emoji support in preview :tada: 
 * Shows a list of all the commands on using help.
 
 ![screenshot](https://raw.githubusercontent.com/psianion/rotomhq/master/assets/img/Rotom1.gif)
