@@ -41,7 +41,7 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", (member) => {
   member.guild.channels.cache
-    .get("713713610706255932")
+    .get("837174458698694677")
     .send(
       "Welcome <@" +
         member.user.id +
