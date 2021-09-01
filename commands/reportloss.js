@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
           }
         );
 
-        Data.findOne(
+        User.findOne(
           {
             discordId: leader.id,
           },
