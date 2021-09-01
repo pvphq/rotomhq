@@ -15,15 +15,6 @@ const teamSchema = mongoose.Schema({
   pokemon6: pokemonSchema,
 });
 
-const leaderSchema = mongoose.Schema({
-  region: String,
-  leaderGymName: String,
-  leaderTeam: teamSchema,
-  leaderWins: Number,
-  leaderMatches: Number,
-});
-
-
 const userSchema = mongoose.Schema({
   ign: String,
   discordName: String,
@@ -40,7 +31,14 @@ const userSchema = mongoose.Schema({
   buddy: String,
   homeCommunity: String,
   isLeader: Boolean,
-  leaderInfo: leaderSchema,
+  leaderInfo: {
+    region: String,
+    leaderGymName: String,
+    leaderTeam: teamSchema,
+    leaderWins: Number,
+    leaderMatches: Number,
+  },
+
   towerOfMastery: {
     region: String,
     currentGym: String,
