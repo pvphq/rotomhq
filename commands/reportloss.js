@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         message.client.channels.cache
           .get("882106887569559572")
           .send(
-            `**${trainerName}** has failed to defeat **${leader}** in ${EU[i].gymName}`
+            `**${trainerName}** has failed to defeat **${leader}** in ${EU[i].gymRoleIDTag}`
           );
 
         message.react("✅");
