@@ -61,7 +61,7 @@ module.exports = [
     leader2ID: "363589705343696898",
     leader3ID: "484000770078015489",
     leader4ID: "452310660194238464",
-    gymChallengerRoleID: "882279142085787700",
+    gymChallengerRoleID: "882279160976924756",
     badgeName: "Psychedelic Frogs Badge",
   },
   {
