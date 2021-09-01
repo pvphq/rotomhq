@@ -11,6 +11,10 @@ mongoose.connect(process.env.mongoPass, {
 //MODELS
 const Data = require("../models/data.js");
 
+function winRate(w, l) {
+  return w * (w / (w + l)); // The function returns the product of p1 and p2
+}
+
 module.exports.run = async (bot, message, args) => {
   Data.find({
     lb: "all",
@@ -50,9 +54,9 @@ module.exports.run = async (bot, message, args) => {
         for (i = start; i < end; i++) {
           embed.addField(
             "\u200B",
-            `**#${i + 1}.** ${res[i].name} : **${res[
-              i
-            ].wins.toLocaleString()}** wins.`
+            `**#${i + 1}.** ${res[i].name} : **${parseFloat(
+              parseFloat(winRate(res[i].wins, res[i].losses).toFixed(1))
+            )}** points.`
           );
         }
       }
