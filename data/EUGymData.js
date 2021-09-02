@@ -10,7 +10,7 @@ module.exports = [
     leader3ID: "696380816875585579",
     leader4ID: "290581361926995978",
     gymChallengerRoleID: "882278996052684820",
-    badgeName: "Grandsenrook Badge",
+    badgeName: "Belladonna Badge",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ module.exports = [
     leader3ID: "367027579808514059",
     leader4ID: "441689794649784320",
     gymChallengerRoleID: "882279088906178580",
-    badgeName: "Lavandia Badge",
+    badgeName: "Poltergeist Badge",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ module.exports = [
     leader3ID: "340545531250081793",
     leader4ID: "567261896835596298",
     gymChallengerRoleID: "882279119205834854",
-    badgeName: "Greyvern Badge",
+    badgeName: "Time Badge",
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ module.exports = [
     leader3ID: "347980157572612126",
     leader4ID: "341583544969330689",
     gymChallengerRoleID: "882279142085787700",
-    badgeName: "Elite Frit Badge",
+    badgeName: "Friet Badge",
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ module.exports = [
     leader3ID: "484000770078015489",
     leader4ID: "452310660194238464",
     gymChallengerRoleID: "882279160976924756",
-    badgeName: "Psychedelic Frogs Badge",
+    badgeName: "Melody Badge",
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ module.exports = [
     leader3ID: "342239806048436224",
     leader4ID: "237562850376155147",
     gymChallengerRoleID: "882279186633457735",
-    badgeName: "Flying Codfish Badge",
+    badgeName: "Patanisca Badge",
   },
   {
     id: 7,
@@ -88,7 +88,7 @@ module.exports = [
     leader3ID: "716947503534047273",
     leader4ID: "558938388992884745",
     gymChallengerRoleID: "882279211941920808",
-    badgeName: "Italian Tsari Badge",
+    badgeName: "Tsari Badge",
   },
   {
     id: 8,
@@ -101,6 +101,6 @@ module.exports = [
     leader3ID: "194917171376291841",
     leader4ID: "657560855965204480",
     gymChallengerRoleID: "882279232519159908",
-    badgeName: "Toxic CoveBadge",
+    badgeName: "Venom Badge",
   },
 ];
