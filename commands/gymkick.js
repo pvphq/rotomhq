@@ -1,6 +1,17 @@
 // at the top of your file
 const Discord = require("discord.js");
-const GymData = require("../data/gym");
+const mongoose = require("mongoose");
+// const botconfig = require("../botconfig.json");
+
+//Connect to db
+mongoose.connect(process.env.mongoPass, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+//MODELS
+const User = require("../models/user.js");
+const EU = require("../data/EUGymData");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
