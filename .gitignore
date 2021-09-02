@@ -10,6 +10,5 @@ node_modules
 /commands/balance.js
 /commands/status.js
 /commands/help.js
-/commands/gymkick.js
 /commands/badges.js
 /commands/award.js
