@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
           .setTimestamp();
 
         message.client.channels.cache
-          .get("882106887569559572")
+          .get("882106929646829619")
           .send(awardEmbed);
 
         const embed = new Discord.MessageEmbed().setDescription(
