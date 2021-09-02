@@ -37,6 +37,9 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(embed);
         message.react("✅");
 
+        challengerRole = message.guild.roles.cache.find(
+          (r) => r.id === EU[i].gymChallengerRoleID
+        );
         trainer.roles.remove(challengerRole);
         trainer.roles.remove(holdRole);
 
