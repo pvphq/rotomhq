@@ -26,7 +26,9 @@ module.exports.run = async (bot, message, args) => {
           .setColor("#daffe7")
           .addFields({
             value: `Come back after 7 days from this message!`,
-            name: `**${trainerName}** has been defeated in ${EU[i].gymRoleIDTag}!`,
+            name: `**${bot.users.cache.get(
+              trainer.id
+            )}** has been defeated in **${EU[i].gymRoleName}**!`,
             inline: true,
           })
           .setTimestamp();
