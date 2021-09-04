@@ -51,53 +51,53 @@ module.exports.run = async (bot, message, args) => {
                 leaderData.leaderInfo.leaderMatches += 1;
                 leaderData.save().catch((err) => console.log(err));
               }
-            }
-          }
-        );
 
-        User.findOne(
-          {
-            discordId: trainerName.id,
-          },
+              User.findOne(
+                {
+                  discordId: trainerName.id,
+                },
 
-          (err, userData) => {
-            if (err) console.log(err);
+                (err, userData) => {
+                  if (err) console.log(err);
 
-            if (!userData) {
-              const embed = new Discord.MessageEmbed().setDescription(
-                `${bot.users.cache.get(
-                  leader.id
-                )}, please mention the challenger correctly!`
-              );
-              message.channel.send(embed);
-              message.react("❌");
-              return;
-            } else {
-              if (!userData.towerOfMastery.gymWins) {
-                if (!userData.towerOfMastery.gymMatches) {
-                  userData.towerOfMastery.gymWins = 1;
-                  userData.towerOfMastery.gymMatches = 1;
-                  userData.save().catch((err) => console.log(err));
-                } else {
-                  userData.towerOfMastery.gymWins = 1;
-                  userData.towerOfMastery.gymMatches += 1;
-                  userData.save().catch((err) => console.log(err));
+                  if (!userData) {
+                    const embed = new Discord.MessageEmbed().setDescription(
+                      `${bot.users.cache.get(
+                        leader.id
+                      )}, please mention the challenger correctly!`
+                    );
+                    message.channel.send(embed);
+                    message.react("❌");
+                    return;
+                  } else {
+                    if (!userData.towerOfMastery.gymWins) {
+                      if (!userData.towerOfMastery.gymMatches) {
+                        userData.towerOfMastery.gymWins = 1;
+                        userData.towerOfMastery.gymMatches = 1;
+                        userData.save().catch((err) => console.log(err));
+                      } else {
+                        userData.towerOfMastery.gymWins = 1;
+                        userData.towerOfMastery.gymMatches += 1;
+                        userData.save().catch((err) => console.log(err));
+                      }
+                    } else {
+                      userData.towerOfMastery.gymMatches += 1;
+                      userData.towerOfMastery.gymWins += 1;
+                      userData.save().catch((err) => console.log(err));
+                    }
+
+                    message.client.channels.cache
+                      .get("882106887569559572")
+                      .send(
+                        `**${trainerName}** has defeated **${leader}** in ${EU[i].gymRoleIDTag}`
+                      );
+                    message.react("✅");
+                  }
                 }
-              } else {
-                userData.towerOfMastery.gymMatches += 1;
-                userData.towerOfMastery.gymWins += 1;
-                userData.save().catch((err) => console.log(err));
-              }
+              );
             }
           }
         );
-
-        message.client.channels.cache
-          .get("882106887569559572")
-          .send(
-            `**${trainerName}** has defeated **${leader}** in ${EU[i].gymRoleIDTag}`
-          );
-        message.react("✅");
 
         return true; // stop searching
       } else {
