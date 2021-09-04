@@ -8,6 +8,10 @@ mongoose.connect(process.env.mongoPass, {
   useUnifiedTopology: true,
 });
 
+function winRate(w, l) {
+  return w * (w / (w + l)); // The function returns the product of p1 and p2
+}
+
 //MODELS
 const Data = require("../models/data.js");
 
@@ -42,7 +46,9 @@ module.exports.run = async (bot, message, args) => {
         for (i = start; i < res.length; i++) {
           embed.addField(
             `#${i + 1}. ${res[i].name}`,
-            `${res[i].leaderwins.toLocaleString()} wins!`
+            `${res[i].leaderwins.toLocaleString()} - ${res[
+              i
+            ].leaderlosses.toLocaleString()}!`
           );
         }
       } else {
@@ -50,9 +56,11 @@ module.exports.run = async (bot, message, args) => {
         for (i = start; i < end; i++) {
           embed.addField(
             "\u200B",
-            `**#${i + 1}.** ${res[i].name} : **${res[
-              i
-            ].leaderwins.toLocaleString()}** wins.`
+            `**#${i + 1}.** ${res[i].name} : **${parseFloat(
+              parseFloat(
+                winRate(res[i].leaderwins, res[i].leaderlosses).toFixed(1)
+              )
+            )}** points.`
           );
         }
       }
