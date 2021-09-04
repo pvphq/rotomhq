@@ -21,6 +21,41 @@ module.exports.run = async (bot, message, args) => {
   if (message.channel.id === "882615634905673778") {
     EU.find((o, i) => {
       if (message.member.roles.cache.has(o.gymRoleID)) {
+        User.findOne(
+          {
+            discordId: leader.id,
+          },
+          (err, leaderData) => {
+            if (err) console.log(err);
+            if (!leaderData) {
+              const embed = new Discord.MessageEmbed().setDescription(
+                `${bot.users.cache.get(
+                  leader.id
+                )} you've not registered on the website, you cannot perform this action!`
+              );
+              message.channel.send(embed);
+              message.react("❌");
+              return;
+            } else {
+              if (!leaderData.leaderInfo.leaderWins) {
+                if (!leaderData.leaderInfo.leaderMatches) {
+                  leaderData.leaderInfo.leaderWins = 1;
+                  leaderData.leaderInfo.leaderMatches = 1;
+                  leaderData.save().catch((err) => console.log(err));
+                } else {
+                  leaderData.leaderInfo.leaderWins = 1;
+                  leaderData.leaderInfo.leaderMatches += 1;
+                  leaderData.save().catch((err) => console.log(err));
+                }
+              } else {
+                leaderData.leaderInfo.leaderWins += 1;
+                leaderData.leaderInfo.leaderMatches += 1;
+                leaderData.save().catch((err) => console.log(err));
+              }
+            }
+          }
+        );
+
         message.client.channels.cache
           .get("882106887569559572")
           .send(
@@ -53,29 +88,6 @@ module.exports.run = async (bot, message, args) => {
           }
         );
 
-        User.findOne(
-          {
-            discordId: leader.id,
-          },
-          (err, leaderData) => {
-            if (err) console.log(err);
-            if (!leaderData.leaderInfo.leaderWins) {
-              if (!leaderData.leaderInfo.leaderMatches) {
-                leaderData.leaderInfo.leaderWins = 1;
-                leaderData.leaderInfo.leaderMatches = 1;
-                leaderData.save().catch((err) => console.log(err));
-              } else {
-                leaderData.leaderInfo.leaderWins = 1;
-                leaderData.leaderInfo.leaderMatches += 1;
-                leaderData.save().catch((err) => console.log(err));
-              }
-            } else {
-              leaderData.leaderInfo.leaderWins += 1;
-              leaderData.leaderInfo.leaderMatches += 1;
-              leaderData.save().catch((err) => console.log(err));
-            }
-          }
-        );
         return true; // stop searching
       } else {
         return;
