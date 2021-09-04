@@ -10,72 +10,68 @@ mongoose.connect(process.env.mongoPass, {
 });
 
 //MODELS
-const Data = require("../models/data.js");
-const GymData = require("../data/gym");
+const User = require("../models/user.js");
+const EU = require("../data/EUGymData");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
   const trainerName =
     message.mentions.users.first() || bot.users.cache.get(args[0]);
 
-  if (message.channel.id === "818829790583848990") {
-    GymData.find((o, i) => {
+  if (message.channel.id === "882615634905673778") {
+    EU.find((o, i) => {
       if (message.member.roles.cache.has(o.gymRoleID)) {
         message.client.channels.cache
-          .get("818871238390317067")
+          .get("882106887569559572")
           .send(
-            `**${trainerName}** has defeated **${leader}** in ${GymData[i].gymName}`
+            `**${trainerName}** has defeated **${leader}** in ${EU[i].gymRoleIDTag}`
           );
 
         message.react("✅");
-        Data.findOne(
+
+        User.findOne(
           {
-            userID: trainerName.id,
+            discordId: trainerName.id,
           },
 
           (err, userData) => {
             if (err) console.log(err);
-
-            if (!userData) {
-              const newData = new Data({
-                name: bot.users.cache.get(trainerName.id).username,
-                userID: trainerName.id,
-                lb: "all",
-                creds: 0,
-                wins: 1,
-                losses: 0,
-                leaderlosses: 0,
-                leaderwins: 0,
-              });
-              newData.save().catch((err) => console.log(err));
+            if (!userData.towerOfMastery.gymWins) {
+              if (!userData.towerOfMastery.gymMatches) {
+                userData.towerOfMastery.gymWins = 1;
+                userData.towerOfMastery.gymMatches = 1;
+                userData.save().catch((err) => console.log(err));
+              } else {
+                userData.towerOfMastery.gymWins = 1;
+                userData.towerOfMastery.gymMatches += 1;
+                userData.save().catch((err) => console.log(err));
+              }
             } else {
-              userData.wins += 1;
+              userData.towerOfMastery.gymMatches += 1;
+              userData.towerOfMastery.gymWins += 1;
               userData.save().catch((err) => console.log(err));
             }
           }
         );
 
-        Data.findOne(
+        User.findOne(
           {
-            userID: leader.id,
+            discordId: leader.id,
           },
           (err, leaderData) => {
             if (err) console.log(err);
-
-            if (!leaderData) {
-              const newData = new Data({
-                name: bot.users.cache.get(leader.id).username,
-                userID: leader.id,
-                lb: "all",
-                creds: 0,
-                wins: 0,
-                losses: 0,
-                leaderwins: 0,
-                leaderlosses: 1,
-              });
-              newData.save().catch((err) => console.log(err));
+            if (!leaderData.leaderInfo.leaderWins) {
+              if (!leaderData.leaderInfo.leaderMatches) {
+                leaderData.leaderInfo.leaderWins = 0;
+                leaderData.leaderInfo.leaderMatches = 1;
+                leaderData.save().catch((err) => console.log(err));
+              } else {
+                leaderData.leaderInfo.leaderWins = 0;
+                leaderData.leaderInfo.leaderMatches += 1;
+                leaderData.save().catch((err) => console.log(err));
+              }
             } else {
-              leaderData.leaderlosses += 1;
+              leaderData.leaderInfo.leaderMatches += 1;
               leaderData.save().catch((err) => console.log(err));
             }
           }
@@ -86,9 +82,12 @@ module.exports.run = async (bot, message, args) => {
       }
     });
   } else {
-    message.channel.send(
-      "Err! Wrong Channel! Use the command in <#818829790583848990>!"
+    const embed = new Discord.MessageEmbed().setDescription(
+      `${bot.users.cache.get(
+        leader.id
+      )} Use the reportwin command in <#882615634905673778> for EU <:EU:870766537580118066>!`
     );
+    message.channel.send(embed);
     message.react("❌");
     return;
   }

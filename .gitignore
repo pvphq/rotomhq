@@ -8,3 +8,7 @@ node_modules
 /commands/credspay.js
 /commands/wins.js
 /commands/balance.js
+/commands/status.js
+/commands/help.js
+/commands/badges.js
+/commands/award.js

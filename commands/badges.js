@@ -14,65 +14,67 @@ module.exports.run = async (bot, message, args) => {
     // Draw a rectangle with the dimensions of the entire canvas
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-    const badge1 = await Canvas.loadImage("./assets/img/Grunt.png");
-    const badge2 = await Canvas.loadImage("./assets/img/NoLag.png");
-    const badge3 = await Canvas.loadImage("./assets/img/Zephyr.png");
-    const badge4 = await Canvas.loadImage("./assets/img/Mumbai.png");
-    const badge5 = await Canvas.loadImage("./assets/img/Cursed.png");
-    const badge6 = await Canvas.loadImage("./assets/img/Charcoal.png");
-    const badge7 = await Canvas.loadImage("./assets/img/Chennai.png");
-    const badge8 = await Canvas.loadImage("./assets/img/AllStars.png");
+    const DarkPoison = await Canvas.loadImage("./assets/img/DarkPoison.png");
+    const DragonSteel = await Canvas.loadImage("./assets/img/DragonSteel.png");
+    const GroundFlying = await Canvas.loadImage(
+      "./assets/img/GroundFlying.png"
+    );
+    const NormalGhost = await Canvas.loadImage("./assets/img/NormalGhost.png");
+    const NormalPsychic = await Canvas.loadImage(
+      "./assets/img/NormalPsychic.png"
+    );
+    const PoisonFighting = await Canvas.loadImage(
+      "./assets/img/PoisonFighting.png"
+    );
+    const WaterGrass = await Canvas.loadImage("./assets/img/WaterGrass.png");
+    const WaterPoison = await Canvas.loadImage("./assets/img/WaterPoison.png");
 
     try {
       if (
-        message.member.roles.cache.some((role) => role.name === "Grunt Badge")
+        message.member.roles.cache.some(
+          (role) => role.name === "Belladonna Badge"
+        )
       ) {
-        ctx.drawImage(badge1, 0, 0, canvas.width, canvas.height);
-      }
-      if (
-        message.member.roles.cache.some((role) => role.name === "No Lag Badge")
-      ) {
-        ctx.drawImage(badge2, 0, 0, canvas.width, canvas.height);
-      }
-      if (
-        message.member.roles.cache.some((role) => role.name === "Zephyr Badge")
-      ) {
-        ctx.drawImage(badge3, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(DarkPoison, 0, 0, canvas.width, canvas.height);
       }
       if (
         message.member.roles.cache.some(
-          (role) => role.name === "Mind Palace Badge"
+          (role) => role.name === "Poltergeist Badge"
         )
       ) {
-        ctx.drawImage(badge4, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(NormalGhost, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some((role) => role.name === "Time Badge")
+      ) {
+        ctx.drawImage(DragonSteel, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some((role) => role.name === "Friet Badge")
+      ) {
+        ctx.drawImage(WaterGrass, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some((role) => role.name === "Melody Badge")
+      ) {
+        ctx.drawImage(NormalPsychic, 0, 0, canvas.width, canvas.height);
       }
       if (
         message.member.roles.cache.some(
-          (role) => role.name === "Cursed Platinum Badge"
+          (role) => role.name === "Patanisca Badge"
         )
       ) {
-        ctx.drawImage(badge5, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(GroundFlying, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some(
-          (role) => role.name === "Charcoal Badge"
-        )
+        message.member.roles.cache.some((role) => role.name === "Tsari Badge")
       ) {
-        ctx.drawImage(badge6, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(PoisonFighting, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some(
-          (role) => role.name === "Love Dust Badge"
-        )
+        message.member.roles.cache.some((role) => role.name === "Venom Badge")
       ) {
-        ctx.drawImage(badge7, 0, 0, canvas.width, canvas.height);
-      }
-      if (
-        message.member.roles.cache.some(
-          (role) => role.name === "Turbulent Badge"
-        )
-      ) {
-        ctx.drawImage(badge8, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(WaterPoison, 0, 0, canvas.width, canvas.height);
       }
     } catch (error) {
       console.log(" ");

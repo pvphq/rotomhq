@@ -45,7 +45,7 @@ bot.on("guildMemberAdd", (member) => {
     .send(
       "Welcome <@" +
         member.user.id +
-        ">. \nWelcome to PvP HQ! Get suitable roles from <#741086632282816562> \nand read the rules from <#717672417044201472> \nEnjoy your battles in here!"
+        ">. \nWelcome to PvP HQ! Get suitable roles from <#741086632282816562> \nand read the rules from <#717672417044201472> \nTo participate in ToM, login at https://www.pvphq.in to register!"
     );
 });
 
