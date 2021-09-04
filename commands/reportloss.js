@@ -56,14 +56,6 @@ module.exports.run = async (bot, message, args) => {
           }
         );
 
-        message.client.channels.cache
-          .get("882106887569559572")
-          .send(
-            `**${trainerName}** has failed to defeat **${leader}** in ${EU[i].gymRoleIDTag}`
-          );
-
-        message.react("✅");
-
         User.findOne(
           {
             discordId: trainerName.id,
@@ -71,22 +63,42 @@ module.exports.run = async (bot, message, args) => {
 
           (err, userData) => {
             if (err) console.log(err);
-            if (!userData.towerOfMastery.gymWins) {
-              if (!userData.towerOfMastery.gymMatches) {
-                userData.towerOfMastery.gymWins = 0;
-                userData.towerOfMastery.gymMatches = 1;
-                userData.save().catch((err) => console.log(err));
+
+            if (!userData) {
+              const embed = new Discord.MessageEmbed().setDescription(
+                `${bot.users.cache.get(
+                  leader.id
+                )}, please mention the challenger correctly!`
+              );
+              message.channel.send(embed);
+              message.react("❌");
+              return;
+            } else {
+              if (!userData.towerOfMastery.gymWins) {
+                if (!userData.towerOfMastery.gymMatches) {
+                  userData.towerOfMastery.gymWins = 0;
+                  userData.towerOfMastery.gymMatches = 1;
+                  userData.save().catch((err) => console.log(err));
+                } else {
+                  userData.towerOfMastery.gymWins = 0;
+                  userData.towerOfMastery.gymMatches += 1;
+                  userData.save().catch((err) => console.log(err));
+                }
               } else {
-                userData.towerOfMastery.gymWins = 0;
                 userData.towerOfMastery.gymMatches += 1;
                 userData.save().catch((err) => console.log(err));
               }
-            } else {
-              userData.towerOfMastery.gymMatches += 1;
-              userData.save().catch((err) => console.log(err));
             }
           }
         );
+
+        message.client.channels.cache
+          .get("882106887569559572")
+          .send(
+            `**${trainerName}** has failed to defeat **${leader}** in ${EU[i].gymRoleIDTag}`
+          );
+
+        message.react("✅");
 
         return true; // stop searching
       } else {
