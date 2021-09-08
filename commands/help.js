@@ -9,10 +9,6 @@ module.exports.run = async (bot, message, args) => {
     )
     .addField(`hq!badges`, "Shows you your Gym Badges Case for ToM S2!")
     .addField(
-      `hq!leaderboard`,
-      "Shows the Leaderboard of this Season.\nSorted by total number of matches won against Leaders!"
-    )
-    .addField(
       `hq!challenge <tag Gym Leader>`,
       "Use this command to initiate a challenge in the ToM."
     )
@@ -30,15 +26,15 @@ module.exports.run = async (bot, message, args) => {
     )
     .addField(
       `hq!awardbadge <tag Challenger>`,
-      "Use this command to award the Challenger with your Gym Badge."
+      "**Aliases : hq!givebadge**\nUse this command to award the Challenger with your Gym Badge."
     )
     .addField(
       `hq!gymkick <tag Challenger>`,
-      "Use this command to remove the Challenger from your Gym. \n"
+      "**Aliases : hq!comeagain**\nUse this command to remove the Challenger from your Gym. \n"
     )
     .addField(
       "\u200B",
-      "**PvP HQ** | [**Server Invite**](https://discord.gg/QEFTu9J) | [**Support**](https://www.buymeacoffee.com/pvphq)"
+      "**PvP HQ** | [**Support HQ**](https://www.buymeacoffee.com/pvphq)"
     )
     .setColor("#D3F8FF");
 

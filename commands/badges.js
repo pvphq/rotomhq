@@ -13,6 +13,20 @@ module.exports.run = async (bot, message, args) => {
     ctx.strokeStyle = "#74037b";
     // Draw a rectangle with the dimensions of the entire canvas
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
+    const BugWater = await Canvas.loadImage("./assets/img/BugWater.png");
+    const DarkFlying = await Canvas.loadImage("./assets/img/DarkFlying.png");
+    const GhostNormal = await Canvas.loadImage("./assets/img/GhostNormal.png");
+    const PoisonElectric = await Canvas.loadImage(
+      "./assets/img/PoisonElectric.png"
+    );
+    const PoisonNormal = await Canvas.loadImage(
+      "./assets/img/PoisonNormal.png"
+    );
+    const SteelGrass = await Canvas.loadImage("./assets/img/SteelGrass.png");
+    const SteelPsychic = await Canvas.loadImage(
+      "./assets/img/SteelPsychic.png"
+    );
+    const WaterFlying = await Canvas.loadImage("./assets/img/WaterFlying.png");
 
     const DarkPoison = await Canvas.loadImage("./assets/img/DarkPoison.png");
     const DragonSteel = await Canvas.loadImage("./assets/img/DragonSteel.png");
@@ -36,6 +50,54 @@ module.exports.run = async (bot, message, args) => {
         )
       ) {
         ctx.drawImage(DarkPoison, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some((role) => role.name === "Zephyr Badge")
+      ) {
+        ctx.drawImage(SteelPsychic, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some((role) => role.name === "Neutral Badge")
+      ) {
+        ctx.drawImage(PoisonNormal, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some(
+          (role) => role.name === "Aquabuzz Badge"
+        )
+      ) {
+        ctx.drawImage(BugWater, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some((role) => role.name === "Ghoul Badge")
+      ) {
+        ctx.drawImage(GhostNormal, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some(
+          (role) => role.name === "Aerial Anchor Badge"
+        )
+      ) {
+        ctx.drawImage(WaterFlying, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some((role) => role.name === "Toxtric Badge")
+      ) {
+        ctx.drawImage(PoisonElectric, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some(
+          (role) => role.name === "Iron Rose Badge"
+        )
+      ) {
+        ctx.drawImage(SteelGrass, 0, 0, canvas.width, canvas.height);
+      }
+      if (
+        message.member.roles.cache.some(
+          (role) => role.name === "Dementors Badge"
+        )
+      ) {
+        ctx.drawImage(DarkFlying, 0, 0, canvas.width, canvas.height);
       }
       if (
         message.member.roles.cache.some(

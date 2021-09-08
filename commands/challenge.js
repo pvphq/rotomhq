@@ -11,6 +11,7 @@ mongoose.connect(process.env.mongoPass, {
 //MODELS
 const User = require("../models/user.js");
 const EU = require("../data/EUGymData");
+const IN = require("../data/INGymData");
 
 module.exports.run = async (bot, message, args) => {
   let user = message.author;
@@ -116,11 +117,85 @@ module.exports.run = async (bot, message, args) => {
               message.react("❌");
             }
           }
+        } else if (data.towerOfMastery.region === "IN") {
+          if (message.channel.id !== "884909179926642748") {
+            const embed = new Discord.MessageEmbed().setDescription(
+              `${bot.users.cache.get(
+                user.id
+              )} Use the challenge command in <#884909179926642748> for IN <:HQ:741349932086198304>!`
+            );
+            message.channel.send(embed);
+            message.react("❌");
+            return;
+          } else {
+            if (gym) {
+              IN.find((o, i) => {
+                if (o.gymRoleName === gym.name) {
+                  const embed = new Discord.MessageEmbed().setDescription(
+                    `${user} has challenged the Gym! ${IN[i].gymRoleIDTag}`
+                  );
+                  message.client.channels.cache
+                    .get(IN[i].gymChannelID)
+                    .send(embed);
+                  message.react("✅");
+
+                  const filter = (reaction, leader) => {
+                    return (
+                      ["✅"].includes(reaction.emoji.name) &&
+                      (leader.id === IN[i].leader1ID ||
+                        leader.id === IN[i].leader2ID ||
+                        leader.id === IN[i].leader3ID ||
+                        leader.id === IN[i].leader4ID ||
+                        leader.id === "271234466993799180")
+                    );
+                  };
+
+                  message
+                    .awaitReactions(filter, { max: 1, time: 3000000 })
+                    .then((collected) => {
+                      const reaction = collected.first();
+                      let role = message.guild.roles.cache.find(
+                        (r) => r.id === IN[i].gymChallengerRoleID
+                      );
+                      let member = message.member;
+
+                      if (reaction.emoji.name === "✅") {
+                        message.client.channels.cache
+                          .get(IN[i].gymChannelID)
+                          .send(
+                            `${user}` +
+                              ` is here! Please time your matches with ${IN[i].gymRoleIDTag} and have fun :)) GL! 🔥`
+                          );
+                        data.towerOfMastery.currentGym = `${IN[i].gymRoleName}`;
+                        data.save().catch((err) => console.log(err));
+                        member.roles.add(role).catch(console.error);
+                        member.roles.add(holdRole);
+                      } else {
+                        console.log("you reacted with a thumbs down.");
+                      }
+                    })
+                    .catch((collected) => {
+                      console.log(error);
+                    });
+
+                  return true; // stop searching
+                }
+              });
+            } else {
+              const embed = new Discord.MessageEmbed().setDescription(
+                `${bot.users.cache.get(
+                  user.id
+                )}, mention a Gym in your challenge!`
+              );
+              message.channel.send(embed);
+              message.react("❌");
+            }
+          }
         } else {
           const embed = new Discord.MessageEmbed().setDescription(
             `${bot.users.cache.get(
               user.id
-            )}, to challenge EU Gyms your region must be set to EU! \n Use the **hq!setregion EU** command in <#717681173152661544> to do so! <:EU:870766537580118066>`
+            )}, to challenge Gyms your region must be set! \n Use the **hq!setregion** command in <#717681173152661544> to do so <:HQ:741349932086198304>! `
           );
           message.channel.send(embed);
           message.react("❌");

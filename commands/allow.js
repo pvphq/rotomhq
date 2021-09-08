@@ -10,6 +10,7 @@ mongoose.connect(process.env.mongoPass, {
 //MODELS
 const User = require("../models/user.js");
 const EU = require("../data/EUGymData");
+const IN = require("../data/INGymData");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
@@ -94,11 +95,63 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send(embed);
             message.react("❌");
           }
+        } else if (data.towerOfMastery.region === "IN") {
+          if (
+            !data.towerOfMastery.currentGym ||
+            data.towerOfMastery.currentGym === ""
+          ) {
+            IN.find((o, i) => {
+              if (message.member.roles.cache.has(o.gymRoleID)) {
+                if (message.channel.id === "884909041724325889") {
+                  challengerRole = message.guild.roles.cache.find(
+                    (r) => r.id === IN[i].gymChallengerRoleID
+                  );
+                  const embed = new Discord.MessageEmbed().setDescription(
+                    `${bot.users.cache.get(
+                      trainer.id
+                    )} has been added to your gym!`
+                  );
+                  message.channel.send(embed);
+                  message.react("✅");
+                  message.client.channels.cache
+                    .get(IN[i].gymChannelID)
+                    .send(
+                      `${trainer}` +
+                        ` is here! Please time your matches with ${IN[i].gymRoleIDTag} and have fun :)) GL! 🔥`
+                    );
+                  data.towerOfMastery.currentGym = `${IN[i].gymRoleName}`;
+                  data.save().catch((err) => console.log(err));
+                  trainer.roles.add(challengerRole);
+                  trainer.roles.add(holdRole);
+                  return true; // stop searching
+                } else {
+                  const embed = new Discord.MessageEmbed().setDescription(
+                    `${bot.users.cache.get(
+                      leader.id
+                    )} Use the allow command in <#884909041724325889> for IN!`
+                  );
+                  message.channel.send(embed);
+                  message.react("❌");
+                  return;
+                }
+              } else {
+                return;
+              }
+            });
+          } else {
+            const embed = new Discord.MessageEmbed().setDescription(
+              `${bot.users.cache.get(trainer.id)} is already in **${
+                data.towerOfMastery.currentGym
+              }**!\n They cannot be allowed until they are kicked/removed from there!`
+            );
+            message.channel.send(embed);
+            message.react("❌");
+          }
         } else {
           const embed = new Discord.MessageEmbed().setDescription(
             `${bot.users.cache.get(trainer.id)} is registered in ${
               data.towerOfMastery.region
-            }, we only have EU launched atm.\n Ask them to change their region if they wanna hit EU!`
+            }, we only have EU and IN launched atm.\n Ask them to change their region if they wanna hit these regions!!`
           );
           message.channel.send(embed);
           message.react("❌");
