@@ -95,7 +95,7 @@ module.exports = [
     gymRoleName: "Evil Phoenix Gym",
     gymRoleID: "874286007795716177",
     gymRoleIDTag: "<@&874286007795716177>",
-    gymChannelID: "884912525290909736",
+    gymChannelID: "884912623261454376",
     leader1ID: "500339756107038730",
     leader2ID: "496542967084089344",
     leader3ID: "371738674985041920",
