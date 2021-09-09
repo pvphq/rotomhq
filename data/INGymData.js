@@ -17,7 +17,7 @@ module.exports = [
     gymRoleName: "Acidic Base Gym",
     gymRoleID: "884911312293994547",
     gymRoleIDTag: "<@&874285824353640528>",
-    gymChannelID: "884910887805284382",
+    gymChannelID: "884911312293994547",
     leader1ID: "360428821528182794",
     leader2ID: "639144850767347722",
     leader3ID: "647326966999154688",
