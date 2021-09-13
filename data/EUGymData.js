@@ -47,7 +47,7 @@ module.exports = [
     leader1ID: "540531760086122507",
     leader2ID: "270572956344778753",
     leader3ID: "347980157572612126",
-    leader4ID: "341583544969330689",
+    leader4ID: "339826153458237440",
     gymChallengerRoleID: "882279142085787700",
     badgeName: "Friet Badge",
   },
