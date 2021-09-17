@@ -18,7 +18,6 @@ module.exports.run = async (bot, message, args) => {
   const leader = message.author;
   const trainer = message.mentions.members.first();
   const trainerName = message.mentions.users.first();
-  const holdRole = message.guild.roles.cache.find((r) => r.name === "OnHold");
 
   if (message.channel.id === "882615634905673778") {
     EU.find((o, i) => {
@@ -53,7 +52,6 @@ module.exports.run = async (bot, message, args) => {
 
         trainer.roles.add(badgeRole);
         trainer.roles.remove(challengerRole);
-        trainer.roles.remove(holdRole);
 
         User.findOne(
           {
@@ -104,7 +102,6 @@ module.exports.run = async (bot, message, args) => {
 
         trainer.roles.add(badgeRole);
         trainer.roles.remove(challengerRole);
-        trainer.roles.remove(holdRole);
 
         User.findOne(
           {

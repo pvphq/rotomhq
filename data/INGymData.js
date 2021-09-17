@@ -86,7 +86,7 @@ module.exports = [
     leader1ID: "189356602883702784",
     leader2ID: "562216396185010176",
     leader3ID: "531844139789058048",
-    leader4ID: "343348176859955200",
+    leader4ID: "542711975046807552",
     gymChallengerRoleID: "883729737296523314",
     badgeName: "Iron Rose Badge",
   },

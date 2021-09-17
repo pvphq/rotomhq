@@ -14,7 +14,6 @@ const IN = require("../data/INGymData");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
-  const holdRole = message.guild.roles.cache.find((r) => r.name === "OnHold");
   const trainer = message.mentions.members.first();
   const trainerName = message.mentions.users.first();
 
@@ -70,7 +69,6 @@ module.exports.run = async (bot, message, args) => {
                   data.towerOfMastery.currentGym = `${EU[i].gymRoleName}`;
                   data.save().catch((err) => console.log(err));
                   trainer.roles.add(challengerRole);
-                  trainer.roles.add(holdRole);
                   return true; // stop searching
                 } else {
                   const embed = new Discord.MessageEmbed().setDescription(
@@ -122,7 +120,6 @@ module.exports.run = async (bot, message, args) => {
                   data.towerOfMastery.currentGym = `${IN[i].gymRoleName}`;
                   data.save().catch((err) => console.log(err));
                   trainer.roles.add(challengerRole);
-                  trainer.roles.add(holdRole);
                   return true; // stop searching
                 } else {
                   const embed = new Discord.MessageEmbed().setDescription(

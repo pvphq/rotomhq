@@ -16,7 +16,6 @@ const IN = require("../data/INGymData");
 module.exports.run = async (bot, message, args) => {
   let user = message.author;
   let gym = message.mentions.roles.first();
-  const holdRole = message.guild.roles.cache.find((r) => r.name === "OnHold");
 
   User.findOne(
     {
@@ -95,7 +94,6 @@ module.exports.run = async (bot, message, args) => {
                         data.towerOfMastery.currentGym = `${EU[i].gymRoleName}`;
                         data.save().catch((err) => console.log(err));
                         member.roles.add(role).catch(console.error);
-                        member.roles.add(holdRole);
                       } else {
                         console.log("you reacted with a thumbs down.");
                       }
@@ -169,7 +167,6 @@ module.exports.run = async (bot, message, args) => {
                         data.towerOfMastery.currentGym = `${IN[i].gymRoleName}`;
                         data.save().catch((err) => console.log(err));
                         member.roles.add(role).catch(console.error);
-                        member.roles.add(holdRole);
                       } else {
                         console.log("you reacted with a thumbs down.");
                       }
