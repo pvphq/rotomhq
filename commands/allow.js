@@ -160,5 +160,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
   name: "allow",
-  aliases: ["comein", "getin"],
+  aliases: ["comein", "getin", "accept"],
 };
