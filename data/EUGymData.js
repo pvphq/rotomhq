@@ -88,7 +88,7 @@ module.exports = [
     leader3ID: "158004436436779008",
     leader4ID: "557229188143382549",
     gymChallengerRoleID: "882279211941920808",
-    badgeName: "Tsari Badge",
+    badgeName: "Stroopwafel Badge",
   },
   {
     id: 8,
@@ -98,7 +98,7 @@ module.exports = [
     gymChannelID: "882615204305842216",
     leader1ID: "209018181916950531",
     leader2ID: "131082054979813376",
-    leader3ID: "194917171376291841",
+    leader3ID: "326643160820219904",
     leader4ID: "657560855965204480",
     gymChallengerRoleID: "882279232519159908",
     badgeName: "Venom Badge",

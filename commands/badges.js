@@ -129,7 +129,9 @@ module.exports.run = async (bot, message, args) => {
         ctx.drawImage(GroundFlying, 0, 0, canvas.width, canvas.height);
       }
       if (
-        message.member.roles.cache.some((role) => role.name === "Tsari Badge")
+        message.member.roles.cache.some(
+          (role) => role.name === "Stroopwafel Badge"
+        )
       ) {
         ctx.drawImage(PoisonFighting, 0, 0, canvas.width, canvas.height);
       }
