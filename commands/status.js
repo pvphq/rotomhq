@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 const EU = require("../data/EUGymData");
 const IN = require("../data/INGymData");
+const NA = require("../data/NAGymData");
 
 module.exports.run = async (bot, message, args) => {
   var user = message.author;
