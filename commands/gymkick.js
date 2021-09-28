@@ -13,6 +13,7 @@ mongoose.connect(process.env.mongoPass, {
 const User = require("../models/user.js");
 const EU = require("../data/EUGymData");
 const IN = require("../data/INGymData");
+const NA = require("../data/NAGymData");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
@@ -39,6 +40,45 @@ module.exports.run = async (bot, message, args) => {
 
         challengerRole = message.guild.roles.cache.find(
           (r) => r.id === EU[i].gymChallengerRoleID
+        );
+        trainer.roles.remove(challengerRole);
+
+        User.findOne(
+          {
+            discordId: trainerName.id,
+          },
+
+          (err, userData) => {
+            if (err) console.log(err);
+            userData.towerOfMastery.currentGym = "";
+            userData.save().catch((err) => console.log(err));
+          }
+        );
+        return true; // stop searching
+      } else {
+        return;
+      }
+    });
+  } else if (message.channel.id === "891807093257039952") {
+    NA.find((o, i) => {
+      if (message.member.roles.cache.has(o.gymRoleID)) {
+        const kickEmbed = new Discord.MessageEmbed()
+          .setColor("#daffe7")
+          .addFields({
+            value: `Come back after 7 days from this message!`,
+            name: `**${trainerName.username}** has been defeated in **${NA[i].gymRoleName}**!`,
+            inline: true,
+          })
+          .setTimestamp();
+        message.client.channels.cache.get("891808069678407730").send(kickEmbed);
+        const embed = new Discord.MessageEmbed().setDescription(
+          `${bot.users.cache.get(trainer.id)} has been removed from your gym!`
+        );
+        message.channel.send(embed);
+        message.react("✅");
+
+        challengerRole = message.guild.roles.cache.find(
+          (r) => r.id === NA[i].gymChallengerRoleID
         );
         trainer.roles.remove(challengerRole);
 

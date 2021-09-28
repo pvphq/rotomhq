@@ -11,6 +11,7 @@ mongoose.connect(process.env.mongoPass, {
 const User = require("../models/user.js");
 const EU = require("../data/EUGymData");
 const IN = require("../data/INGymData");
+const NA = require("../data/NAGymData");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
@@ -75,6 +76,57 @@ module.exports.run = async (bot, message, args) => {
                     `${bot.users.cache.get(
                       leader.id
                     )} Use the allow command in <#882615634905673778> for EU <:EU:870766537580118066>!`
+                  );
+                  message.channel.send(embed);
+                  message.react("❌");
+                  return;
+                }
+              } else {
+                return;
+              }
+            });
+          } else {
+            const embed = new Discord.MessageEmbed().setDescription(
+              `${bot.users.cache.get(trainer.id)} is already in **${
+                data.towerOfMastery.currentGym
+              }**!\n They cannot be allowed until they are kicked/removed from there!`
+            );
+            message.channel.send(embed);
+            message.react("❌");
+          }
+        } else if (data.towerOfMastery.region === "NA") {
+          if (
+            !data.towerOfMastery.currentGym ||
+            data.towerOfMastery.currentGym === ""
+          ) {
+            NA.find((o, i) => {
+              if (message.member.roles.cache.has(o.gymRoleID)) {
+                if (message.channel.id === "891807093257039952") {
+                  challengerRole = message.guild.roles.cache.find(
+                    (r) => r.id === NA[i].gymChallengerRoleID
+                  );
+                  const embed = new Discord.MessageEmbed().setDescription(
+                    `${bot.users.cache.get(
+                      trainer.id
+                    )} has been added to your gym!`
+                  );
+                  message.channel.send(embed);
+                  message.react("✅");
+                  message.client.channels.cache
+                    .get(NA[i].gymChannelID)
+                    .send(
+                      `${trainer}` +
+                        ` is here! Please time your matches with ${NA[i].gymRoleIDTag} and have fun :)) GL! 🔥`
+                    );
+                  data.towerOfMastery.currentGym = `${NA[i].gymRoleName}`;
+                  data.save().catch((err) => console.log(err));
+                  trainer.roles.add(challengerRole);
+                  return true; // stop searching
+                } else {
+                  const embed = new Discord.MessageEmbed().setDescription(
+                    `${bot.users.cache.get(
+                      leader.id
+                    )} Use the allow command in <#891807093257039952> for NA <:NA:870766370512597002>!`
                   );
                   message.channel.send(embed);
                   message.react("❌");

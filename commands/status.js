@@ -29,6 +29,24 @@ module.exports.run = async (bot, message, args) => {
     });
 
     message.channel.send(embed);
+  } else if (args[0] === "NA") {
+    const embed = new Discord.MessageEmbed()
+      .setTitle("Tower of Mastery: NA Status")
+      .setColor("#90c9ff")
+      .setTimestamp()
+      .attachFiles(attachment)
+      .setFooter("PvP HQ", "attachment://sample.png");
+
+    NA.forEach((i) => {
+      const Role = message.guild.roles.cache.get(i.gymChallengerRoleID);
+      const Members = Role.members.size;
+      embed.addField(
+        `${i.gymRoleName} <:NA:870766370512597002>`,
+        `${Members} challengers`
+      );
+    });
+
+    message.channel.send(embed);
   } else if (args[0] === "IN") {
     const embed = new Discord.MessageEmbed()
       .setTitle("Tower of Mastery: IN Status")
@@ -51,7 +69,7 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.MessageEmbed().setDescription(
       `${bot.users.cache.get(
         user.id
-      )}, you have to pick EU or IN region at the moment! <:HQ:741349932086198304>`
+      )}, you have to pick EU or IN or NA region at the moment! <:HQ:741349932086198304>`
     );
 
     message.channel.send(embed);

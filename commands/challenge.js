@@ -12,6 +12,7 @@ mongoose.connect(process.env.mongoPass, {
 const User = require("../models/user.js");
 const EU = require("../data/EUGymData");
 const IN = require("../data/INGymData");
+const NA = require("../data/NAGymData");
 
 module.exports.run = async (bot, message, args) => {
   let user = message.author;
@@ -120,14 +121,14 @@ module.exports.run = async (bot, message, args) => {
             const embed = new Discord.MessageEmbed().setDescription(
               `${bot.users.cache.get(
                 user.id
-              )} Use the challenge command in <#884909179926642748> for IN <:HQ:741349932086198304>!`
+              )} Use the challenge command in <#884909179926642748> for IN!`
             );
             message.channel.send(embed);
             message.react("❌");
             return;
           } else {
             if (gym) {
-              IN.find((o, i) => {
+              EU.find((o, i) => {
                 if (o.gymRoleName === gym.name) {
                   const embed = new Discord.MessageEmbed().setDescription(
                     `${user} has challenged the Gym! ${IN[i].gymRoleIDTag}`
@@ -165,6 +166,79 @@ module.exports.run = async (bot, message, args) => {
                               ` is here! Please time your matches with ${IN[i].gymRoleIDTag} and have fun :)) GL! 🔥`
                           );
                         data.towerOfMastery.currentGym = `${IN[i].gymRoleName}`;
+                        data.save().catch((err) => console.log(err));
+                        member.roles.add(role).catch(console.error);
+                      } else {
+                        console.log("you reacted with a thumbs down.");
+                      }
+                    })
+                    .catch((collected) => {
+                      console.log(error);
+                    });
+
+                  return true; // stop searching
+                }
+              });
+            } else {
+              const embed = new Discord.MessageEmbed().setDescription(
+                `${bot.users.cache.get(
+                  user.id
+                )}, mention a Gym in your challenge!`
+              );
+              message.channel.send(embed);
+              message.react("❌");
+            }
+          }
+        } else if (data.towerOfMastery.region === "NA") {
+          if (message.channel.id !== "891807877868683285") {
+            const embed = new Discord.MessageEmbed().setDescription(
+              `${bot.users.cache.get(
+                user.id
+              )} Use the challenge command in <#891807877868683285> for NA <:NA:870766370512597002>!`
+            );
+            message.channel.send(embed);
+            message.react("❌");
+            return;
+          } else {
+            if (gym) {
+              NA.find((o, i) => {
+                if (o.gymRoleName === gym.name) {
+                  const embed = new Discord.MessageEmbed().setDescription(
+                    `${user} has challenged the Gym! ${NA[i].gymRoleIDTag}`
+                  );
+                  message.client.channels.cache
+                    .get(NA[i].gymChannelID)
+                    .send(embed);
+                  message.react("✅");
+
+                  const filter = (reaction, leader) => {
+                    return (
+                      ["✅"].includes(reaction.emoji.name) &&
+                      (leader.id === NA[i].leader1ID ||
+                        leader.id === NA[i].leader2ID ||
+                        leader.id === NA[i].leader3ID ||
+                        leader.id === NA[i].leader4ID ||
+                        leader.id === "271234466993799180")
+                    );
+                  };
+
+                  message
+                    .awaitReactions(filter, { max: 1, time: 3000000 })
+                    .then((collected) => {
+                      const reaction = collected.first();
+                      let role = message.guild.roles.cache.find(
+                        (r) => r.id === NA[i].gymChallengerRoleID
+                      );
+                      let member = message.member;
+
+                      if (reaction.emoji.name === "✅") {
+                        message.client.channels.cache
+                          .get(NA[i].gymChannelID)
+                          .send(
+                            `${user}` +
+                              ` is here! Please time your matches with ${NA[i].gymRoleIDTag} and have fun :)) GL! 🔥`
+                          );
+                        data.towerOfMastery.currentGym = `${NA[i].gymRoleName}`;
                         data.save().catch((err) => console.log(err));
                         member.roles.add(role).catch(console.error);
                       } else {
