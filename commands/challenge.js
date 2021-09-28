@@ -128,7 +128,7 @@ module.exports.run = async (bot, message, args) => {
             return;
           } else {
             if (gym) {
-              EU.find((o, i) => {
+              IN.find((o, i) => {
                 if (o.gymRoleName === gym.name) {
                   const embed = new Discord.MessageEmbed().setDescription(
                     `${user} has challenged the Gym! ${IN[i].gymRoleIDTag}`
