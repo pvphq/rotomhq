@@ -13,6 +13,7 @@ mongoose.connect(process.env.mongoPass, {
 const User = require("../models/user.js");
 const EU = require("../data/EUGymData");
 const IN = require("../data/INGymData");
+const NA = require("../data/NAGymData");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
