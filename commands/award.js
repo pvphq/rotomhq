@@ -13,6 +13,7 @@ mongoose.connect(process.env.mongoPass, {
 const User = require("../models/user.js");
 const EU = require("../data/EUGymData");
 const IN = require("../data/INGymData.js");
+const NA = require("../data/NAGymData.js");
 
 module.exports.run = async (bot, message, args) => {
   const leader = message.author;
@@ -92,6 +93,56 @@ module.exports.run = async (bot, message, args) => {
 
         message.client.channels.cache
           .get("884909881549787227")
+          .send(awardEmbed);
+
+        const embed = new Discord.MessageEmbed().setDescription(
+          `${badge} has been awarded to ${trainerName} by ${leader}`
+        );
+        message.channel.send(embed);
+        message.react("✅");
+
+        trainer.roles.add(badgeRole);
+        trainer.roles.remove(challengerRole);
+
+        User.findOne(
+          {
+            discordId: trainerName.id,
+          },
+
+          (err, userData) => {
+            if (err) console.log(err);
+            userData.towerOfMastery.currentGym = "";
+            userData.save().catch((err) => console.log(err));
+          }
+        );
+        return true; // stop searching
+      } else {
+        return;
+      }
+    });
+  } else if (message.channel.id === "891807093257039952") {
+    NA.find((o, i) => {
+      if (message.member.roles.cache.has(o.gymRoleID)) {
+        badge = `${NA[i].badgeName} 🥇`;
+        challengerRole = message.guild.roles.cache.find(
+          (r) => r.id === `${NA[i].gymChallengerRoleID}`
+        );
+        badgeRole = message.guild.roles.cache.find(
+          (r) => r.name === `${NA[i].badgeName}`
+        );
+        message.react("✅");
+
+        const awardEmbed = new Discord.MessageEmbed()
+          .setColor("#daffe7")
+          .addFields({
+            value: `You have been awarded the **${badge}** by **${leader.username}**.`,
+            name: `🎉 Congratulations on defeating the ${NA[i].gymRoleName}, **${trainerName.username}**`,
+            inline: true,
+          })
+          .setTimestamp();
+
+        message.client.channels.cache
+          .get("891808152171991050")
           .send(awardEmbed);
 
         const embed = new Discord.MessageEmbed().setDescription(
