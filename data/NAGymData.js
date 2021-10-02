@@ -23,7 +23,7 @@ module.exports = [
     leader3ID: "292544818364547072",
     leader4ID: "466928368827236352",
     gymChallengerRoleID: "883729785199661056",
-    badgeName: "Glacier Bay Badge",
+    badgeName: "Glacial Till Badge",
   },
   {
     id: 3,
