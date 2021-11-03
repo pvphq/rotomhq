@@ -7,7 +7,7 @@ module.exports = [
     gymChannelID: "884910887805284382",
     leader1ID: "810518642143133697",
     leader2ID: "719855826570838056",
-    leader3ID: "576326703589228554",
+    leader3ID: "521423465765535756",
     leader4ID: "680697671350222904",
     gymChallengerRoleID: "883729698658590741",
     badgeName: "Zephyr Badge",
